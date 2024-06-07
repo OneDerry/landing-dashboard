@@ -32,13 +32,12 @@ export default function Home() {
       <div className="h-screen bg-[url('/Main.jpg')] bg-cover bg-no-repeat bg-center">
         <Navbar />
         <Logbutton />
-        <div className="w-[50%] mt-9 h-[400px] flex sm:flex-col flex-col justify-center leading- pl-64 leading-10">
-          <h1 className="text-5xl text-black font-bold font-serif  hover:text-orange-500 md:text-3xl lg:text-5xl sm:text-xl">
+        <div className="mt-9 h-[200px] sm:pl-12 md:pl-40 leading-10">
+          <h1 className="text-5xl text-black font-bold font-serif  hover:text-orange-500 md:text-3xl lg:text-5xl sm:text-[30px]">
             H Cube Architects
           </h1>
-          <p className="text-lg mt-4 text-black font-serif md:text-sm sm:text-[10px] ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam
-            vitae nostrum sunt nesciunt labore corrupti illum dignissimos?
+          <p className="text-lg mt-4 text-black font-serif md:text-sm sm:text-[13px] ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
           <button className="bg-[#000300] mt-4 hover:bg-gradient-to-r from-orange-800 rounded-lg text-white p-1 w-[150px] flex justify-center items-center gap-2 group-hover:rotate-90 transform ease-in">
             Get started
@@ -50,7 +49,7 @@ export default function Home() {
         id="about"
         className="h-screen flex gap-4 justify-center items-center w-full"
       >
-        <div className="sm:w-[100%] md:w-[30%] leading-10">
+        <div className="sm:w-[100%] md:w-[30%] leading-10 sm:mx-auto">
           <h1 className="lg:text-4xl md:text-2xl sm:text-xl text-black font-bold font-serif">
             We Create the Art of Soulful & Stylish Living
           </h1>
@@ -66,7 +65,7 @@ export default function Home() {
           <img src="Herobg.jpg" alt="An image" width={"700px"} />
         </div>
       </div>
-      <div className="bg-white h-[300px] sm:flex justify-center items-center gap-4">
+      <div className="bg-white md:h-[300px] flex md:flex-row sm:flex-col justify-center items-center sm:h-[700px] ">
         <img
           src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQtlC60bSdavbnBA6vl2qcAPiJzPHDz5EM7qmGmuUdvGz6Ou5jY"
           alt=""

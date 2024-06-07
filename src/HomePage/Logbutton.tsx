@@ -4,8 +4,8 @@ export default function Logbutton() {
   
   
   return (
-    <div className="h-[100px] flex justify-center items-center">
-      <form action="/dashboard" className="flex gap-2">
+    <div className="md:h-[100px] sm:h-[150px]  flex justify-center items-center">
+      <form action="/dashboard" className="flex md:flex-row sm:flex-col gap-2 sm:items-end">
         <div className="">
           <label htmlFor="email">email </label>
           <input type="email" className="rounded p-1" />
