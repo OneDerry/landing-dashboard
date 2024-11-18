@@ -29,9 +29,11 @@ const Times = [
 export default function Home() {
   return (
     <main id="main" className="">
-      <div className="h-screen bg-[url('/Main.jpg')] bg-cover bg-no-repeat bg-center">
         <Navbar />
-        <Logbutton />
+      <div className="h-screen bg-[url('/Main.jpg')] bg-cover bg-no-repeat bg-center mt-4">
+        <div className="mt-4 flex items-center justify-center">
+          <Logbutton />
+        </div>
         <div className="mt-9 h-[200px] sm:pl-12 md:pl-40 leading-10">
           <h1 className="text-5xl text-black font-bold font-serif  hover:text-orange-500 md:text-3xl lg:text-5xl sm:text-[30px]">
             H Cube Architects
@@ -59,7 +61,9 @@ export default function Home() {
             dignissimos?
           </p>
           <p className="text- text-green-700 font-bold font-mono">01234789</p>
-          <button className="bg-[#000300] hover:bg-gradient-to-r from-orange-800  rounded-xl text-white p-1 w-[170px] flex justify-center items-center gap-2 lg:text-[14px] sm:text-sm ">Get consolidation <FaLongArrowAltRight/></button>
+          <button className="bg-[#000300] hover:bg-gradient-to-r from-orange-800  rounded-xl text-white p-1 w-[170px] flex justify-center items-center gap-2 lg:text-[14px] sm:text-sm ">
+            Get consolidation <FaLongArrowAltRight />
+          </button>
         </div>
         <div className="">
           <img src="Herobg.jpg" alt="An image" width={"700px"} />
@@ -89,8 +93,12 @@ export default function Home() {
       </div>
       <div className="bg-[beige]">
         <section className="justify-center items-center flex flex-col h-[300px]">
-          <h1 className="font-serif text-6xl font-bold md:text-4xl lg:text-7xl sm:text-[30px]">Connect.Learn.Earn</h1>
-          <p className="font-serif text-2xl font-bold md:text-sm lg:text-4xl sm:text-[10px]">Just a text</p>
+          <h1 className="font-serif text-6xl font-bold md:text-4xl lg:text-7xl sm:text-[30px]">
+            Connect.Learn.Earn
+          </h1>
+          <p className="font-serif text-2xl font-bold md:text-sm lg:text-4xl sm:text-[10px]">
+            Just a text
+          </p>
         </section>
       </div>
       <div id="media" className="bg-white p-4">
@@ -108,7 +116,6 @@ export default function Home() {
             consequuntur ducimus nisi aperiam placeat!
           </p>
         </div>
-        {/* flex mx-auto px-4 max-w-[1240px] justify-between items-center */}
         <div className=" w-full flex justify-center items-center text-center bg-[beige] h-[200px] mt-8">
           {Times.map((time) => (
             <div key={time.id} className="border-r-2 border-red-200 w-[100%]">
@@ -119,10 +126,9 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <a
-          href="#main"
+        <a href="#main"
           className="p-1 text-black rounded flex items-end justify-end"
-        ></a>
+        >Back to Top</a>
       </section>
       <footer className="h-[100px] flex mx-auto px-4 max-w-[1240px] justify-between items-center ">
         <div className="sm:w-[40px] md:w-[40px] lg:w-[90px]">

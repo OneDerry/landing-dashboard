@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaToggleOn, FaToggleOff } from "react-icons/fa";
 import { ImBin } from "react-icons/im";
 import Accordion from "./Accordion";
+import Table from "./table";
 
 export default function Sdisplay() {
   const [isRebillToggled, setIsRebillToggled] = useState(false);
@@ -38,7 +39,7 @@ export default function Sdisplay() {
           />
         </div>
       </div>
-      <div className=" mt-4 p-1 h-screen rounded-lg ">
+      <div className=" mt-4 p-1  rounded-lg ">
         <div className="bg-white rounded-xl h-[140px] p-4">
           <h1 className="text-2xl font-semibold font-serif">Notifications</h1>
           <p className="flex items-center justify-between w-[240px]">
@@ -71,6 +72,7 @@ export default function Sdisplay() {
           </p>
         </div>
       </div>
+      <Table />
     </div>
   );
 }

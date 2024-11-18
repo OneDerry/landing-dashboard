@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { GrDocumentPerformance } from "react-icons/gr";
-import { CiSettings } from "react-icons/ci";
+import { CiCloud, CiSettings } from "react-icons/ci";
 import { VscAccount } from "react-icons/vsc";
 import { IoInvertModeOutline } from "react-icons/io5";
 import { RiPagesLine } from "react-icons/ri";
@@ -58,6 +58,12 @@ export default function Sidenav() {
             <li className="p-2 font-semibold flex gap-3 items-center hover:bg-gradient-to-r from-orange-800">
               <CiSettings />
               Settings
+            </li>
+          </Link>
+          <Link to="/weather">
+            <li className="p-2 font-semibold flex gap-3 items-center hover:bg-gradient-to-r from-orange-800">
+              <CiCloud />
+              Weather
             </li>
           </Link>
         </ul>
