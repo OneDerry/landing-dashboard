@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { TbLayoutDashboard } from "react-icons/tb";
 
 interface WeatherData {
   name: string;
@@ -40,7 +41,22 @@ const Content = () => {
 
   return (
     <>
-      <div className="bg-[url('./assets/clouds.jpg')] bg-no-repeat bg-cover h-screen">
+      <div className="mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="space-y-2">
+            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900">
+              Weather Dashboard
+            </h1>
+            <p className="text-neutral-600 text-lg">Track your weather</p>
+          </div>
+
+          <button className="btn-outline flex items-center space-x-2 self-start sm:self-center">
+            <TbLayoutDashboard className="w-5 h-5" />
+            <span>Customize Layout</span>
+          </button>
+        </div>
+      </div>
+      <div className="bg-[url('./assets/clouds.jpg')] bg-no-repeat bg-cover">
         <div className="p-2 flex items-center justify-center">
           <input
             type="text"
@@ -63,7 +79,7 @@ const Content = () => {
                 {data?.main?.temp.toFixed()}℉
               </h1>
             </div>
-             <div className="float-right">
+            <div className="float-right">
               <p className="text-xl relative transition-transform rotate-90">
                 {data?.weather ? <p>{data.weather[0].main}</p> : null}
               </p>

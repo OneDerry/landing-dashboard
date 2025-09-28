@@ -1,15 +1,23 @@
-// import { LiaToggleOffSolid } from "react-icons/lia";
 import { LiaToggleOnSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
+import {
+  TbTruck,
+  TbCreditCard,
+  TbShoppingBag,
+  TbShoppingCart,
+  TbPackage,
+} from "react-icons/tb";
 
 export default function Mpdisplay() {
   const counts = [
     {
       id: 1,
       name: "Shipped",
-      amount: " 4 Items",
+      amount: "4 Items",
       per: "$700",
       desc: "Compared to last month",
+      icon: TbTruck,
+      color: "success",
     },
     {
       id: 2,
@@ -17,6 +25,8 @@ export default function Mpdisplay() {
       amount: "4 Items",
       per: "$400",
       desc: "Compared to last month",
+      icon: TbCreditCard,
+      color: "warning",
     },
     {
       id: 3,
@@ -24,6 +34,8 @@ export default function Mpdisplay() {
       amount: "8 Items",
       per: "$1100",
       desc: "See details",
+      icon: TbShoppingBag,
+      color: "primary",
     },
     {
       id: 4,
@@ -31,6 +43,8 @@ export default function Mpdisplay() {
       amount: "3 items",
       per: "$300",
       desc: "Proceed to checkout",
+      icon: TbShoppingCart,
+      color: "secondary",
     },
   ];
 
@@ -158,112 +172,191 @@ export default function Mpdisplay() {
   ];
 
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const bite = setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 1200);
 
-    return () => {
-      clearTimeout(bite);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
+  const getColorClasses = (color: string) => {
+    const colors = {
+      success: "bg-success-100 text-success-600",
+      warning: "bg-warning-100 text-warning-600",
+      primary: "bg-primary-100 text-primary-600",
+      secondary: "bg-secondary-100 text-secondary-600",
+    };
+    return colors[color as keyof typeof colors] || colors.primary;
+  };
+
+  if (loading) {
+    return (
+      <div className="space-y-8 animate-pulse">
+        {/* Header Skeleton */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="space-y-2">
+            <div className="h-8 bg-neutral-200 rounded w-48"></div>
+            <div className="h-4 bg-neutral-200 rounded w-64"></div>
+          </div>
+        </div>
+
+        {/* Stats Cards Skeleton */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[...Array(4)].map((_, index) => (
+            <div key={index} className="card-premium p-6">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 bg-neutral-200 rounded-xl"></div>
+                  <div className="w-16 h-6 bg-neutral-200 rounded-full"></div>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-8 bg-neutral-200 rounded w-24"></div>
+                  <div className="h-4 bg-neutral-200 rounded w-32"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Table Skeleton */}
+        <div className="card-premium p-6">
+          <div className="space-y-4">
+            <div className="h-6 bg-neutral-200 rounded w-48"></div>
+            <div className="space-y-2">
+              {[...Array(5)].map((_, index) => (
+                <div key={index} className="h-12 bg-neutral-200 rounded"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="ml-60">
-      {loading ? (
-        <>
-          <div className="bg-white shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px] animate-pulse">
-            <div className="font-bold font-serif text-xl text-blue-800"></div>
-          </div>
-          <div className=" flex items-center h-[130px] mt-[80px] gap-9 animate-pulse">
-          {counts.map((count) => (
-              <div className="bg-white w-full shadow-lg hover:scale-105 pl-4 rounded-[20px] border p-4">
-                <div key={count.id}>
-                  <div className="leading-9 text-sm font-bold text-slate-600">
-                  </div>
-                  <div className="text-2xl font-extrabold font-serif">
-                  </div>
-                  <div className="text-[12px] font-semibold text-slate-600 flex mt-2 items-center gap-2">
-                    <p className="bg-blue-200 w-[50px] flex justify-center p-1 rounded-[20px]">
-                    </p>
-                  </div>
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="space-y-2">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900">
+            My Page
+          </h1>
+          <p className="text-neutral-600 text-lg">
+            Manage your orders, inventory, and product listings
+          </p>
+        </div>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {counts.map((count) => {
+          const Icon = count.icon;
+          return (
+            <div
+              key={count.id}
+              className="card-premium p-6 hover:scale-105 transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div
+                  className={`p-3 rounded-xl ${getColorClasses(count.color)}`}
+                >
+                  <Icon className="w-6 h-6" />
                 </div>
+                <span className="text-sm font-medium text-neutral-500">
+                  {count.per}
+                </span>
               </div>
-            ))}
-          </div>
-          <div className="mt-7  bg-white rounded-b-[20px] shadow-lg h-screen animate-pulse">
-            {pages.map((page) => (
-              <div className="bg-white hover:scale-[100.5%] font-medium text-left border-b-gray-700 border-[1px]">
-                <div key={page.id} className="">
-                  <div className="grid grid-cols-6 mx-3 p-1 gap-34 items-center h-[50px]">
-                    <div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div className="flex items-center justify-center gap-3">
-                    </div>
-                  </div>
-                </div>
+
+              <div className="space-y-2">
+                <p className="text-2xl sm:text-3xl font-bold text-neutral-900 group-hover:text-gradient transition-colors duration-200">
+                  {count.amount}
+                </p>
+                <p className="text-sm font-medium text-neutral-600">
+                  {count.name}
+                </p>
+                <p className="text-xs text-neutral-500">{count.desc}</p>
               </div>
-            ))}
-          </div>         
-        </>
-      ) : (
-        <>
-          <div className="bg-white shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px]">
-            <h1 className="font-bold font-serif text-xl text-blue-800">
-              Mypage
-            </h1>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Products Table */}
+      <div className="card-premium p-6 sm:p-8">
+        <div className="flex items-center space-x-3 mb-6">
+          <div className="p-2 bg-accent-100 rounded-lg">
+            <TbPackage className="w-5 h-5 text-accent-600" />
           </div>
-          <div className=" flex items-center h-[130px] mt-[80px] gap-9 ">
-            {counts.map((count) => (
-              <div className="bg-white w-full shadow-lg hover:scale-105 pl-4 rounded-[20px] border p-4">
-                <div key={count.id}>
-                  <div className="leading-9 text-sm font-bold text-slate-600">
-                    {count.name}
-                  </div>
-                  <div className="text-2xl font-extrabold font-serif">
-                    {count.amount}
-                  </div>
-                  <div className="text-[12px] font-semibold text-slate-600 flex mt-2 items-center gap-2">
-                    <p className="bg-blue-200 w-[50px] flex justify-center p-1 rounded-[20px]">
-                      {count.per}
-                    </p>
-                    {count.desc}
-                  </div>
-                </div>
+          <h2 className="text-2xl font-serif font-bold text-neutral-900">
+            Product Inventory
+          </h2>
+        </div>
+
+        <div className="overflow-x-auto">
+          <div className="min-w-full">
+            {/* Table Header */}
+            <div className="grid grid-cols-6 gap-4 p-4 bg-neutral-50 rounded-lg font-semibold text-neutral-700">
+              <div className="flex items-center">
+                <input type="checkbox" className="rounded" />
               </div>
-            ))}
-          </div>
-          <div className="mt-7  bg-white rounded-b-[20px] shadow-lg h-screen">
-            {pages.map((page) => (
-              <div className="bg-white hover:scale-[100.5%] font-medium text-left border-b-gray-700 border-[1px]">
-                <div key={page.id} className="">
-                  <div className="grid grid-cols-6 mx-3 p-1 gap-34 items-center h-[50px]">
-                    <div>
-                      <input type="checkbox" name="" id="" />
-                    </div>
-                    <div className="flex items-center gap-2">
+              <div>Product</div>
+              <div>Quantity</div>
+              <div>Price</div>
+              <div>Rating</div>
+              <div>Status</div>
+            </div>
+
+            {/* Table Rows */}
+            <div className="space-y-2 mt-4">
+              {pages.map((page) => (
+                <div
+                  key={page.id}
+                  className="grid grid-cols-6 gap-4 p-4 bg-white border border-neutral-200 rounded-lg hover:shadow-soft transition-all duration-200"
+                >
+                  <div className="flex items-center">
+                    <input type="checkbox" className="rounded" />
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-lg overflow-hidden">
                       {page.pic}
+                    </div>
+                    <span className="font-medium text-neutral-900">
                       {page.name}
-                    </div>
-                    <div>{page.amount}</div>
-                    <div>{page.price}</div>
-                    <div>{page.rating}</div>
-                    <div className="flex items-center justify-center gap-3">
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-neutral-700">{page.amount}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="font-semibold text-neutral-900">
+                      {page.price}
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-sm text-neutral-600">
+                      {page.rating}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        page.status === "Active"
+                          ? "bg-success-100 text-success-700"
+                          : "bg-neutral-100 text-neutral-700"
+                      }`}
+                    >
                       {page.status}
-                      <LiaToggleOnSolid />
-                    </div>
+                    </span>
+                    <LiaToggleOnSolid className="text-success-600" />
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </div>
   );
 }

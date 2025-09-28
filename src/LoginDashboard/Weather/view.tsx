@@ -1,10 +1,11 @@
+import Applayout from "../../DBlayout/Applayout";
 import Content from "./Content";
 
 const WeatherView = () => {
   return (
-    <>
-        <Content />
-    </>
+    <Applayout>
+      <Content />
+    </Applayout>
   );
 };
 

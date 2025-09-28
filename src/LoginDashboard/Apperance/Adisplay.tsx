@@ -9,19 +9,24 @@ export default function Adisplay() {
   };
 
   return (
-    <div
-      className="bg-[beige] h-screen ml-60 rounded-2xl "
-      style={{ backgroundColor: backgroundColor }}
-    >
-      <div className="bg-white text-blue-700 shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px]">
-        <h1 className="font-bold font-serif text-xl">Appearance</h1>
-        <button className="p-2 text-black border hover:border-b hover:bg-gradient-to-r from-orange-800 rounded-[20px] flex items-center gap-3 ">
-          <TbLayoutDashboard />
-          Layout
-        </button>
+    <div>
+      <div className="mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="space-y-2">
+            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900">
+              Appearance Dashboard
+            </h1>
+            <p className="text-neutral-600 text-lg">Track your appearance</p>
+          </div>
+
+          <button className="btn-outline flex items-center space-x-2 self-start sm:self-center">
+            <TbLayoutDashboard className="w-5 h-5" />
+            <span>Customize Layout</span>
+          </button>
+        </div>
       </div>
       <div
-        className="mt-[80px] rounded-full p-7 "
+        className=" rounded-xl p-4"
         style={{ backgroundColor: backgroundColor }}
       >
         <div>

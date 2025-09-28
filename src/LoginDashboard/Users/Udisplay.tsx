@@ -50,7 +50,7 @@ export default function Udisplay() {
   }, []);
 
   return (
-    <div className="h-screen w-full ml-60">
+    <div className="">
       {loading ? (
         <>
           <div className="bg-white shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px] animate-pulse">
@@ -79,23 +79,29 @@ export default function Udisplay() {
         </>
       ) : (
         <>
-          <div className="bg-white shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px]">
-            <h1 className="font-bold font-serif text-xl text-blue-700">
-              Users
-            </h1>
-            <button className="p-2 text-black border hover:border-b hover:bg-gradient-to-r from-orange-800 rounded-[20px] flex items-center gap-3 ">
-              <TbLayoutDashboard />
-              Layout
-            </button>
+          <div className="mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="space-y-2">
+                <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900">
+                  Users
+                </h1>
+                <p className="text-neutral-600 text-lg">Manage your users</p>
+              </div>
+
+              <button className="btn-outline flex items-center space-x-2 self-start sm:self-center">
+                <TbLayoutDashboard className="w-5 h-5" />
+                <span>Customize Layout</span>
+              </button>
+            </div>
           </div>
-          <div className="w-[84%] bg-white mt-20 rounded-b-none shadow-lg grid grid-cols-6 p-2 rounded-[14px] font-semibold text-lg">
+          <div className=" bg-white rounded-b-none shadow-lg grid grid-cols-6 p-2 rounded-[14px] font-semibold text-lg">
             <p className="ml-4">Accounts</p>
             <p>Num</p>
             <p>Rating</p>
             <p className="ml-14">Status</p>
           </div>
 
-          <div className="bg-white mt-4 rounded-[40px] w-[84%] rounded-t-none shadow-lg p-4">
+          <div className="bg-white mt-4 rounded-[40px] h-screen rounded-t-none shadow-lg p-4">
             {users.map((user) => (
               <div className="bg-white hover:scale-[100.5%] font-medium border-b-black border rounded-b-lg p-2">
                 <div key={user.id} className="">

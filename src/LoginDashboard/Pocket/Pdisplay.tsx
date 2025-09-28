@@ -46,13 +46,13 @@ export default function Pdisplay() {
     };
   }, []);
   return (
-    <div className="h-screen  ml-60">
+    <div className="">
       {loading ? (
         <>
-          <div className="bg-white shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px] animate-pulse">
+          <div className="bg-white shadow-lg top-16 fixed z-[1] h-11 p-2 flex justify-between rounded-[9px] animate-pulse">
             <div className="font-bold font-serif text-xl text-blue-700"></div>
           </div>
-          <div className="grid grid-cols-3 mt-20 gap-4 animate-pulse">
+          <div className="grid grid-cols-3 gap-4 animate-pulse">
             {dCards.map((card) => (
               <div className=" w-full bg-blue-200 bg-gradient-to-r from-orange-800  pl-4 rounded-[20px] hover:scale-[101%] border-4 border-black shadow-indigo-400 shadow-lg p-4">
                 <div key={card.id}>
@@ -74,16 +74,24 @@ export default function Pdisplay() {
         </>
       ) : (
         <>
-          <div className="bg-white shadow-lg top-16 fixed z-[1] w-[83%] h-11 p-2 flex justify-between rounded-[9px]">
-            <h1 className="font-bold font-serif text-xl text-blue-700">
-              Pocket
-            </h1>
-            <button className="p-2 text-black border hover:border-b hover:bg-gradient-to-r from-orange-800 rounded-[20px] flex items-center gap-3 ">
-              <TbLayoutDashboard />
-              Layout
-            </button>
+          <div className="mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="space-y-2">
+                <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900">
+                  Wallet
+                </h1>
+                <p className="text-neutral-600 text-lg">
+                  Manage your Wallet
+                </p>
+              </div>
+
+              <button className="btn-outline flex items-center space-x-2 self-start sm:self-center">
+                <TbLayoutDashboard className="w-5 h-5" />
+                <span>Customize Layout</span>
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-3 mt-20 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             {dCards.map((card) => (
               <div className=" w-full bg-blue-200 bg-gradient-to-r from-orange-800  pl-4 rounded-[20px] hover:scale-[101%] border-4 border-black shadow-indigo-400 shadow-lg p-4">
                 <div key={card.id}>
