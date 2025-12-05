@@ -75,23 +75,26 @@ export default function Cards() {
       <div className=" p-2 flex items-center flex-col justify-center  font-mono font-bold">
         <h1 className="font-serif text-3xl">Our Featured projects</h1>
         <p className="font-serif md:text-sm sm:text-[10px]">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-          omnis.
+          Explore our portfolio of award-winning architectural designs that blend innovation with functionality.
         </p>
       </div>
 
       <div className="w-1/2 grid lg:grid-cols-3 sm:grid-cols-2 mx-auto gap-3">
         {cards.map((items) => (
-          <div className="p-2 bg-[beige] shadow-md ">
+          <div className="p-2 bg-gradient-to-br from-accent via-neutral-800 to-neutral-900 shadow-md ">
             <div key={items.id} className="">
               <div>{items.image}</div>
               <div className="">
-                <div className="text-xl font-semibold leading-4
-                 mt-3 font-serif md:text-lg sm:text-[12px]">
+                <div
+                  className="text-xl font-semibold leading-4
+                 mt-3 font-serif md:text-lg sm:text-[12px]"
+                >
                   {items.name}
                 </div>
                 <div className="flex items-center justify-between text-sm mt-">
-                  <div className="font-serif md:text-sm sm:text-[10px]">{items.desc}</div>
+                  <div className="font-serif md:text-sm sm:text-[10px]">
+                    {items.desc}
+                  </div>
                   <button>
                     <IoIosArrowDropright className=" md:text-sm sm:text-[10px]text-3xl" />
                   </button>

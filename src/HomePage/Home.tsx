@@ -42,13 +42,11 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="flex flex-col items-center justify-center min-h-[80vh] text-center">
-            <div className="mb-8">
-              <Logbutton />
-            </div>
-
             <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight">
-                <span className="text-gradient-accent">H Cube</span>
+                <span className="bg-gradient-to-r from-slate-900 via-white to-slate-800 bg-clip-text text-transparent">
+                  H Cube
+                </span>
                 <br />
                 <span className="text-white">Architects</span>
               </h1>
@@ -59,14 +57,17 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-                <button className="btn-primary group text-lg px-8 py-4 rounded-2xl">
+                <button className="btn-primary flex items-center gap-2 group text-lg border-white border-2 text-white hover:border-white rounded-2xl">
                   Get Started
                   <FaLongArrowAltRight className="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
-                <button className="btn-outline text-lg px-8 py-4 rounded-2xl border-white text-white hover:bg-white hover:text-neutral-900">
+                <button className="btn-outline text-lg rounded-2xl border-white text-white hover:bg-white hover:text-neutral-900">
                   View Portfolio
                 </button>
               </div>
+            </div>
+            <div className="mt-8">
+              <Logbutton />
             </div>
           </div>
         </div>
@@ -80,7 +81,9 @@ export default function Home() {
               <div className="space-y-4">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-neutral-900 leading-tight">
                   We Create the Art of{" "}
-                  <span className="text-gradient">Soulful & Stylish</span>{" "}
+                  <span className="bg-gradient-to-r from-slate-500 via-gray-300 to-slate-500 bg-clip-text text-transparent">
+                    Soulful & Stylish
+                  </span>{" "}
                   Living
                 </h2>
                 <p className="text-lg sm:text-xl text-neutral-600 leading-relaxed">
@@ -102,13 +105,13 @@ export default function Home() {
                     <p className="text-sm text-neutral-500 uppercase tracking-wide font-medium">
                       Contact
                     </p>
-                    <p className="text-xl font-mono font-bold text-primary-600">
+                    <p className="text-lg font-mono font-bold text-primary-600">
                       +1 (555) 123-4567
                     </p>
                   </div>
                 </div>
 
-                <button className="btn-accent group text-lg px-8 py-4 rounded-2xl">
+                <button className="btn-primary group text-lg flex items-center rounded-2xl">
                   Get Consultation
                   <FaLongArrowAltRight className="ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
@@ -161,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600">
+      <section className="py-20 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
