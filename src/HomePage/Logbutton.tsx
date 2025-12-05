@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "Yup";
+import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "sonner";
 
